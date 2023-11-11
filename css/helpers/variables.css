@@ -16,8 +16,8 @@
   --tx-btn-active: #110929;
   --bg-btn-active: #fff;
 
-  --tx-btn-unactive: #fff;
-  --bg-btn-unactive: #39324d;
+  --tx-btn-inactive: #fff;
+  --bg-btn-inactive: #39324d;
 
   /* Fonts */
   --ff-primary: 'Inter', sans-serif;
