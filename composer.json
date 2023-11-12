@@ -21,7 +21,8 @@
     }
   },
   "require": {
-    "wpackagist-plugin/advanced-custom-fields": "*"
+    "wpackagist-plugin/advanced-custom-fields": "*",
+    "wpackagist-plugin/wp-fastest-cache": "*"
   },
   "require-dev": {},
   "extra": {
