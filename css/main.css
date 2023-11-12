@@ -101,6 +101,13 @@
   & .listing-card {
     border-radius: var(--br-card);
     overflow: hidden;
+    color: var(--tx-dark-primary);
+    transition: background-color 0.3s ease;
+    background-color: var(--bg-dark-secondary);
+
+    &:hover {
+      background-color: var(--bg-dark-accent);
+    }
   }
 
   & .listing-link {
@@ -109,8 +116,6 @@
     gap: 10px;
     height: 100%;
     padding: 10px;
-    background-color: var(--bg-dark-secondary);
-    color: var(--tx-dark-primary);
   }
 
   & .listing-wrapper-thumbnail {
@@ -212,6 +217,17 @@
   & .info {
     font-size: 14px;
     font-weight: 800;
+  }
+
+  @media (max-width: 1024px) {
+    & .marquee-slide-image {
+      cursor: zoom-in;
+      transition: filter 0.2s ease;
+
+      &:hover {
+        filter: brightness(1.2);
+      }
+    }
   }
 }
 
