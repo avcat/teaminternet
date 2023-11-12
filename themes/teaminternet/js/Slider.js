@@ -31,10 +31,8 @@ export default class Slider {
       prevButton: '.marquee .prev',
       nextButton: '.marquee .next',
       loop: false,
-      autoWidth: true,
-      viewportMax: true,
+      fixedWidth: 795,
       center: true,
-      gutter: 21,
       startIndex: 1,
       touch: false,
       responsive: {
@@ -42,14 +40,10 @@ export default class Slider {
           touch: true,
         },
         768: {
-          gutter: 20,
-          items: 1,
-          viewportMax: true,
+          touch: true,
         },
         480: {
-          gutter: 0,
-          items: 1,
-          viewportMax: true,
+          touch: true,
         },
       },
     });

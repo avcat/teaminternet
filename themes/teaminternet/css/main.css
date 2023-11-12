@@ -53,24 +53,12 @@
   }
 
   & .banner-card {
-    grid-column: 1 / 1;
-    grid-row: 1 / 1;
-    border-radius: 21px;
+    width: 100%;
+    height: auto;
 
     &.mobile {
+      width: auto;
       display: none;
-    }
-
-    &:nth-of-type(1) {
-      translate: 88px 56px;
-    }
-
-    &:nth-of-type(2) {
-      translate: -67px -23px;
-    }
-
-    &:nth-of-type(3) {
-      translate: 0 0;
     }
   }
 
@@ -141,12 +129,14 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-  }
 
-  & .no-cards {
-    grid-column: span 4;
-    text-align: center;
-    font-size: 1.5em;
+    &:empty::before {
+      content: 'No product are available at the moment :(';
+      grid-column: span 4;
+      text-align: center;
+      font-size: 1.5em;
+      padding: 2em;
+    }
   }
 
   & .listing-card {
@@ -262,6 +252,25 @@
 }
 
 .marquee {
+  & .marquee-slider {
+    height: 472px;
+    display: flex;
+    gap: 21px;
+  }
+
+  & .marquee-slide {
+    height: 100%;
+    overflow: hidden;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  & .marquee-slide-image {
+    height: 100%;
+    object-fit: cover;
+  }
+
   & .marquee-footer {
     display: flex;
     align-items: center;
@@ -304,26 +313,19 @@
   }
 
   @media (max-width: 1024px) {
-    & .marquee-slider {
-      width: 100%;
-    }
-
-    & .marquee-slide {
-      max-width: 100%;
-      overflow: hidden;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
     & .marquee-slide-image {
-      object-fit: cover;
       cursor: zoom-in;
       transition: filter 0.2s ease;
 
       &:hover {
         filter: brightness(1.2);
       }
+    }
+  }
+
+  @media (max-width: 768px) {
+    & .marquee-slider {
+      height: 267px;
     }
   }
 }

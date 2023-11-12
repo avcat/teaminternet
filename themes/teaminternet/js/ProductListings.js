@@ -1,3 +1,5 @@
+// TODO. Order by “end_date” showing the soonest dates first and past dates not at all
+
 export default class ProductListings {
   constructor(listingsWrapperSelector) {
     this.productsURL =
@@ -23,14 +25,6 @@ export default class ProductListings {
     this.getProductsData();
   }
 
-  noProductsAvailable() {
-    this.listingCardsNode.innerHTML = `
-          <div class="no-cards">
-            No products are available at the moment :(
-          </div>
-        `;
-  }
-
   async getProductsData() {
     try {
       const response = await fetch(this.productsURL);
@@ -38,7 +32,6 @@ export default class ProductListings {
       this.fillCards(products);
       this.products = products;
     } catch (err) {
-      this.noProductsAvailable();
       throw new Error(err);
     }
   }
@@ -62,19 +55,21 @@ export default class ProductListings {
 
   fillCards(products) {
     if (!products.length || !this.listingCardsNode) {
-      this.noProductsAvailable();
+      return;
     }
 
     products.forEach((product, index) => {
       const endDate = this.calcTimeLeft(product.end_date);
-      const cardFooter = endDate
-        ? `
+
+      if (endDate) {
+        const cardFooter = endDate
+          ? `
         <footer class="card-footer">
           <time class="time">${this.calcTimeLeft(product.end_date)}</time>
         </footer>`
-        : '';
+          : '';
 
-      const card = `
+        const card = `
         <li class="listing-card">
           <a
             class="listing-link"
@@ -102,8 +97,8 @@ export default class ProductListings {
               </div>
 
               <div class="listing-index">${index + 1} of ${
-        products.length
-      }</div>
+          products.length
+        }</div>
 
               ${cardFooter}
             </div>
@@ -111,7 +106,8 @@ export default class ProductListings {
         </li>
       `;
 
-      this.listingCardsNode.insertAdjacentHTML('beforeend', card);
+        this.listingCardsNode.insertAdjacentHTML('beforeend', card);
+      }
     });
   }
 
