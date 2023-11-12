@@ -30,6 +30,11 @@
   & .section-title {
     font-size: var(--fs-h1);
     line-height: 1;
+
+    &::after {
+      content: url(../img/star.svg);
+      vertical-align: middle;
+    }
   }
 
   & .highlight {
@@ -59,6 +64,12 @@
 
     &.mobile {
       width: auto;
+      display: none;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    & .section-title::after {
       display: none;
     }
   }
