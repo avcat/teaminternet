@@ -94,7 +94,6 @@ export default class ProductListings {
               <div class="listing-price">
                 <img
                   class="icon"
-                  src="./img/ETH.svg"
                   alt="ETH icon"
                   width="21"
                   height="21"

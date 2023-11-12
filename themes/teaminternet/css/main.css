@@ -204,6 +204,12 @@
     display: flex;
     align-items: center;
     gap: 6px;
+
+    & .icon {
+      max-width: 24px;
+      max-height: 24px;
+      content: url(../img/ETH.svg);
+    }
   }
 
   & .listing-index {

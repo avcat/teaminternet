@@ -1,0 +1,7 @@
+db/*.sql
+node_modules
+plugins/*
+themes/*
+!themes/teaminternet
+themes/teaminternet/assets
+vendor

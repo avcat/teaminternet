@@ -1,0 +1,37 @@
+{
+  "name": "avcat/teaminternet",
+  "description": "Test task for LvivIT/Teamintetnet",
+  "authors": [
+    {
+      "name": "Arkadii Vodolazskyi",
+      "homepage": "https://github.com/avcat"
+    }
+  ],
+  "type": "project",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ],
+  "config": {
+    "vendor-dir": "vendor",
+    "allow-plugins": {
+      "composer/installers": true
+    }
+  },
+  "require": {
+    "wpackagist-plugin/advanced-custom-fields": "*"
+  },
+  "require-dev": {},
+  "extra": {
+    "installer-paths": {
+      "plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ]
+    }
+  },
+  "scripts": {
+    "post-update-cmd": "unzip db/uploads.zip -d uploads; unzip db/wordpress.zip -d db/"
+  }
+}
