@@ -84,15 +84,15 @@
     ?>
         <hr class="section-divider" />
 
-        <!-- TODO. Lightbox -->
-        <!-- TODO. Fix Marqee -->
         <section class="marquee">
             <div class="wrapper">
                 <div class="marquee-slider-wrapper">
                     <div class="marquee-slider" data-slider="marquee">
-                        <?php foreach ($images as $image) { ?>
+                        <?php foreach ($images as $index => $image) { ?>
                             <div class="marquee-slide">
-                                <img class="marquee-slide-image" src="<?= $image; ?>" alt="slide" />
+                                <a class="lightbox-link" href="<?= $image; ?>" data-lightbox="gallery" data-image-alt="<?= $index; ?> / <?= count($images) ?>">
+                                    <img class="marquee-slide-image" src="<?= $image; ?>" alt="slide" />
+                                </a>
                             </div>
                         <?php } ?>
                     </div>

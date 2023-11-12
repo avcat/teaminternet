@@ -12,6 +12,9 @@ function register_styles() {
     wp_register_style('tiny-slider-css', LIBS_DIR . "/tiny-slider.css");
     wp_enqueue_style('tiny-slider-css');
 
+    wp_register_style('lightbox-css', LIBS_DIR . "/lightbox.min.css");
+    wp_enqueue_style('lightbox-css');
+
     wp_register_style('main-css', CSS_DIR . "/main.css?");
     wp_enqueue_style('main-css');
 }
@@ -23,6 +26,9 @@ function register_scripts() {
 
     wp_register_script('tiny-slider-js', LIBS_DIR . "/tiny-slider.js", [], false, true);
     wp_enqueue_script('tiny-slider-js');
+
+    wp_register_script('lightbox-js', LIBS_DIR . "/lightbox.min.js", [], false, true);
+    wp_enqueue_script('lightbox-js');
 
     wp_register_script('main-js', JS_DIR . "/main.js", ['jquery', 'tiny-slider-js'], date("h:i:s"), true);
     wp_enqueue_script('main-js');

@@ -25,25 +25,18 @@ export default class Slider {
 
     const marquee = tns({
       container: this.marqueeNode,
-      items: 1,
       controlsPosition: 'bottom',
-      nav: false,
       prevButton: '.marquee .prev',
       nextButton: '.marquee .next',
-      loop: false,
-      fixedWidth: 795,
-      center: true,
       startIndex: 1,
-      touch: false,
+      nav: false,
+      loop: false,
+      center: true,
       responsive: {
         1024: {
-          touch: true,
-        },
-        768: {
-          touch: true,
-        },
-        480: {
-          touch: true,
+          fixedWidth: 795,
+          gutter: 21,
+          touch: false,
         },
       },
     });
@@ -66,7 +59,6 @@ export default class Slider {
 
   updateInfo() {
     const { index, slideCount } = this.slider?.getInfo();
-    console.info(this.slider.getInfo(), index, slideCount);
 
     if (this.currentSlideNode) {
       this.currentSlideNode.textContent = index + 1;

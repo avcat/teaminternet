@@ -1,0 +1,17 @@
+.lightbox-container {
+  padding: 0;
+}
+
+.lightbox-content {
+  max-width: 100vw;
+  max-height: 90vh;
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.lightbox-btn-close {
+  right: 1.2em;
+}

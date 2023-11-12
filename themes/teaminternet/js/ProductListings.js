@@ -1,5 +1,3 @@
-// TODO. Order by “end_date” showing the soonest dates first and past dates not at all
-
 export default class ProductListings {
   constructor(listingsWrapperSelector) {
     this.productsURL =
