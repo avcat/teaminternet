@@ -32,9 +32,26 @@ export default class Slider {
       nextButton: '.marquee .next',
       loop: false,
       autoWidth: true,
+      viewportMax: true,
       center: true,
       gutter: 21,
       startIndex: 1,
+      touch: false,
+      responsive: {
+        1024: {
+          touch: true,
+        },
+        768: {
+          gutter: 20,
+          items: 1,
+          viewportMax: true,
+        },
+        480: {
+          gutter: 0,
+          items: 1,
+          viewportMax: true,
+        },
+      },
     });
     this.slider = marquee;
 
@@ -55,6 +72,7 @@ export default class Slider {
 
   updateInfo() {
     const { index, slideCount } = this.slider?.getInfo();
+    console.info(this.slider.getInfo(), index, slideCount);
 
     if (this.currentSlideNode) {
       this.currentSlideNode.textContent = index + 1;

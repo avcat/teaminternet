@@ -1,6 +1,7 @@
-@import './helpers/reset.css';
-@import './helpers/variables.css';
-@import './helpers/general.css';
+@import './parts/reset.css';
+@import './parts/variables.css';
+@import './parts/general.css';
+@import './parts/media.css';
 
 .banner {
   padding-top: 72px;
@@ -38,6 +39,7 @@
   & .motto-subtitle {
     margin-top: 32px;
     max-width: 405px;
+    line-height: 26px;
   }
 
   & .motto-button {
@@ -47,12 +49,17 @@
   & .banner-cards {
     display: grid;
     padding-left: 120px;
+    justify-content: center;
   }
 
   & .banner-card {
     grid-column: 1 / 1;
     grid-row: 1 / 1;
     border-radius: 21px;
+
+    &.mobile {
+      display: none;
+    }
 
     &:nth-of-type(1) {
       translate: 88px 56px;
@@ -64,6 +71,40 @@
 
     &:nth-of-type(3) {
       translate: 0 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    &::before {
+      inset: 15px auto auto -50%;
+    }
+
+    & .banner-motto {
+      grid-column: span 12;
+      order: 1;
+    }
+
+    & .motto-subtitle {
+      margin-top: 21px;
+    }
+
+    & .motto-button {
+      margin-top: 21px;
+    }
+
+    & .banner-cards {
+      grid-column: span 12;
+      padding-left: 0;
+    }
+
+    & .banner-card {
+      &.mobile {
+        display: block;
+      }
+
+      &:not(.mobile) {
+        display: none;
+      }
     }
   }
 }
@@ -79,14 +120,24 @@
     margin-top: 34px;
     display: flex;
     gap: 17px;
+    padding-bottom: 10px;
+    overflow-y: auto;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   & .button-filter {
     padding-inline: 34px;
+    flex-shrink: 0;
   }
 
   & .listing-cards {
-    margin-top: 47px;
+    margin-top: 37px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
@@ -175,6 +226,33 @@
     border-radius: var(--br-btn);
     padding: 4px;
   }
+
+  @media (max-width: 1024px) {
+    & .listing-cards {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    & {
+      margin-top: 57px;
+    }
+
+    & .filters {
+      margin-top: 17px;
+    }
+
+    & .listing-cards {
+      margin-top: 28px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    & .listing-cards {
+      grid-template-columns: 1fr;
+    }
+  }
 }
 
 .marquee {
@@ -220,7 +298,20 @@
   }
 
   @media (max-width: 1024px) {
+    & .marquee-slider {
+      width: 100%;
+    }
+
+    & .marquee-slide {
+      max-width: 100%;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     & .marquee-slide-image {
+      object-fit: cover;
       cursor: zoom-in;
       transition: filter 0.2s ease;
 
@@ -230,5 +321,3 @@
     }
   }
 }
-
-/* TODO. Adaptive */

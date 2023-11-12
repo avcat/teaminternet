@@ -23,12 +23,12 @@
   --ff-primary: 'Inter', sans-serif;
 
   /* Sizes */
-  --wrapper: 1274px;
-  --fs-primary: 16px; /* mob: 14px */
+  --wrapper: min(1274px, 90%);
+  --fs-primary: 16px;
   --fs-small: 12px;
   --fs-btn: 16px;
-  --fs-h1: 90px; /* mob: 40px */
-  --fs-h2: 48px; /* mob: 32px */
+  --fs-h1: 90px;
+  --fs-h2: 48px;
   --fs-h3: 18px;
 
   --br-btn: 66px;
